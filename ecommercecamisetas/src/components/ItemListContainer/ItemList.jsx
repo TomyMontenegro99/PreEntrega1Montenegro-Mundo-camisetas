@@ -1,9 +1,12 @@
+import Item from "../Item/Item";
 import React from "react";
 
-const ItemList = ({ saludo }) => {
+const ItemList = ({ products }) => {
   return (
     <div>
-      <h1>{saludo}</h1>
+      {products.map((prod) => (
+        <Item key={prod.id} {...prod} />
+      ))}
     </div>
   );
 };
