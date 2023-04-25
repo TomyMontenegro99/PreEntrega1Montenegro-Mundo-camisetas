@@ -4,7 +4,7 @@ const products = [
     name: "Camiseta Argentina",
     price: 1000,
     category: "deportivo",
-    img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bocashop.com.ar%2Fhe6324-camiseta-titular-boca-jrs-22-23%2Fp&psig=AOvVaw1lCv0FiRP09n6eDSMwqtKI&ust=1682478596232000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOCuhKuHxP4CFQAAAAAdAAAAABAH",
+    img: "https://res.cloudinary.com/ds4qmvzqt/image/upload/v1682459535/HE6323_1_jr41uk.webp",
     stock: 10,
     description: "Descripcion",
   },
@@ -13,7 +13,7 @@ const products = [
     name: "Camiseta Argentina suplente",
     price: 1000,
     category: "deportivo",
-    img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bocashop.com.ar%2Fhe6324-camiseta-titular-boca-jrs-22-23%2Fp&psig=AOvVaw1lCv0FiRP09n6eDSMwqtKI&ust=1682478596232000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOCuhKuHxP4CFQAAAAAdAAAAABAH",
+    img: "https://res.cloudinary.com/ds4qmvzqt/image/upload/v1682459535/HE6323_1_jr41uk.webp",
     stock: 10,
     description: "Descripcion",
   },
@@ -22,7 +22,7 @@ const products = [
     name: "Camiseta Boca",
     price: 1000,
     category: "deportivo",
-    img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bocashop.com.ar%2Fhe6324-camiseta-titular-boca-jrs-22-23%2Fp&psig=AOvVaw1lCv0FiRP09n6eDSMwqtKI&ust=1682478596232000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOCuhKuHxP4CFQAAAAAdAAAAABAH",
+    img: "https://res.cloudinary.com/ds4qmvzqt/image/upload/v1682459535/HE6323_1_jr41uk.webp",
     stock: 10,
     description: "Descripcion",
   },
@@ -31,7 +31,7 @@ const products = [
     name: "Camiseta River",
     price: 1000,
     category: "deportivo",
-    img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bocashop.com.ar%2Fhe6324-camiseta-titular-boca-jrs-22-23%2Fp&psig=AOvVaw1lCv0FiRP09n6eDSMwqtKI&ust=1682478596232000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOCuhKuHxP4CFQAAAAAdAAAAABAH",
+    img: "https://res.cloudinary.com/ds4qmvzqt/image/upload/v1682459535/HE6323_1_jr41uk.webp",
     stock: 10,
     description: "Descripcion",
   },
@@ -41,6 +41,14 @@ export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
+    }, 500);
+  });
+};
+
+export const getProductById = (productId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === productId));
     }, 500);
   });
 };
