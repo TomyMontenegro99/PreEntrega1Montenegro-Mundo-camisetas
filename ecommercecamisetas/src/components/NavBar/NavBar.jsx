@@ -1,4 +1,6 @@
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,9 +11,9 @@ const NavBar = () => {
           width="5%"
           className="navbar-brand"
         />
-        <a className="navbar-brand" href="./Home/Home">
-          Mundo Camisetas
-        </a>
+        <Link to="/" className="navbar-brand">
+          <h3>Mundo Camisetas</h3>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,18 +28,27 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="./Home/Home">
-                Home
+              <a className="nav-link">
+                <NavLink
+                  to={`/category/Deportivo`}
+                  className={({ isActive }) =>
+                    isActive ? "ActiveOption" : "Option"
+                  }
+                >
+                  Deportivo
+                </NavLink>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="./Nosotros/Nosotros">
-                Nosotros
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="./Contacto/Contacto">
-                Contacto
+              <a className="nav-link">
+                <NavLink
+                  to={`/category/Casual`}
+                  className={({ isActive }) =>
+                    isActive ? "ActiveOption" : "Option"
+                  }
+                >
+                  Casual
+                </NavLink>
               </a>
             </li>
           </ul>
