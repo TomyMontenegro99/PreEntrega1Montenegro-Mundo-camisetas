@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-info">
       <div className="container">
         <img
           src="https://res.cloudinary.com/ds4qmvzqt/image/upload/v1682384511/logoTienda_k7vz7p.jpg"
           alt="Este es el logo de la empresa"
           width="5%"
-          className="navbar-brand"
+          className="navbar-brand rounded-circle"
         />
         <Link to="/" className="navbar-brand">
-          <h3>Mundo Camisetas</h3>
+          <h3 className="display-6">Mundo Camisetas</h3>
         </Link>
         <button
           className="navbar-toggler"
