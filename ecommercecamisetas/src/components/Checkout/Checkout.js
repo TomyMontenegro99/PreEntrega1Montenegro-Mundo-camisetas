@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
+import Swal from "sweetalert2";
 import {
   Timestamp,
   collection,
@@ -10,7 +11,6 @@ import { db } from "../../firebaseConfig";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import { CartContext } from "../../context/CartContext";
 import { writeBatch, addDoc } from "firebase/firestore";
-import { doc } from "firebase/firestore";
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -37,10 +37,13 @@ const Checkout = () => {
       const outOfStock = [];
 
       const ids = cart.map((prod) => prod.id);
+
       const productsRef = collection(db, "products");
+
       const productsAddedFromFirestore = await getDocs(
         query(productsRef, where("id", "in", ids))
       );
+
       const { docs } = productsAddedFromFirestore;
 
       docs.forEach((doc) => {
@@ -75,18 +78,35 @@ const Checkout = () => {
     }
   };
 
+  const showOrderIdAlert = () => {
+    Swal.fire({
+      title: "Su orden de compra se genero correctamente",
+      html: `<h1 class="text-center mb-4">El id de su orden es:</h1><h2 class="text-primary">${orderId}</h2>`,
+      icon: "success",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "Aceptar",
+    });
+  };
+
   if (loading) {
     return <h1>Se está generando su orden...</h1>;
   }
 
   if (orderId) {
-    return <h1>El id de su orden es: {orderId}</h1>;
+    showOrderIdAlert();
+    return null;
   }
 
   return (
-    <div>
-      <h1>Checkout</h1>
-      <CheckoutForm onConfirm={createOrder} />
+    <div className="container">
+      <h1 className="text-center">
+        Complete el formulario para generar la orden de compra
+      </h1>
+      <div className="row justify-content-center">
+        <div className="col-sm-8 col-md-6">
+          <CheckoutForm onConfirm={createOrder} />
+        </div>
+      </div>
     </div>
   );
 };

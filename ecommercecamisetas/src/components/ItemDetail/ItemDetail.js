@@ -22,21 +22,21 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   };
 
   return (
-    <article>
-      <header>
-        <h2>{name}</h2>
+    <article className="card">
+      <header className="card-header">
+        <h2 className="card-title">{name}</h2>
       </header>
-      <picture>
-        <img src={img} alt={name} />
+      <picture className="card-img-top">
+        <img src={img} alt={name} className="img-fluid" />
       </picture>
-      <section>
-        <p>Categoria:{category}</p>
-        <p>Descripcion:{description}</p>
-        <p>Precio:{price}</p>
+      <section className="card-body">
+        <p className="card-text">Categoria: {category}</p>
+        <p className="card-text">Descripcion: {description}</p>
+        <p className="card-text">Precio: {price}</p>
       </section>
-      <footer>
+      <footer className="card-footer">
         {quantityAdded > 0 ? (
-          <Link to="/cart" className="Option">
+          <Link to="/cart" className="btn btn-primary">
             Terminar compra
           </Link>
         ) : (

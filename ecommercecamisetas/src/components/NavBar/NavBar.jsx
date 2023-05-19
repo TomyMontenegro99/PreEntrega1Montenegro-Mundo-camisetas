@@ -1,9 +1,9 @@
 import CartWidget from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-info">
+    <nav className="navbar navbar-expand-lg navbar-light bg-warning">
       <div className="container">
         <img
           src="https://res.cloudinary.com/ds4qmvzqt/image/upload/v1682384511/logoTienda_k7vz7p.jpg"
@@ -28,28 +28,24 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link">
-                <NavLink
-                  to={`/category/Deportivo`}
-                  className={({ isActive }) =>
-                    isActive ? "ActiveOption" : "Option"
-                  }
-                >
-                  Deportivo
-                </NavLink>
-              </a>
+              <NavLink
+                to={`/category/Deportivo`}
+                className={({ isActive }) =>
+                  isActive ? "nav-link ActiveOption" : "nav-link Option"
+                }
+              >
+                Deportivo
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link">
-                <NavLink
-                  to={`/category/Casual`}
-                  className={({ isActive }) =>
-                    isActive ? "ActiveOption" : "Option"
-                  }
-                >
-                  Casual
-                </NavLink>
-              </a>
+              <NavLink
+                to={`/category/Casual`}
+                className={({ isActive }) =>
+                  isActive ? "nav-link ActiveOption" : "nav-link Option"
+                }
+              >
+                Casual
+              </NavLink>
             </li>
           </ul>
         </div>

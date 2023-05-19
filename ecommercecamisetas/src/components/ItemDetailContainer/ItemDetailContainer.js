@@ -28,6 +28,16 @@ const ItemDetailContainer = () => {
       });
   }, [itemId]);
 
-  return <div>{loading ? <p>Loading...</p> : <ItemDetail {...product} />}</div>;
+  return (
+    <div className="container">
+      {loading ? (
+        <p className="text-center">Loading...</p>
+      ) : (
+        <div className="row justify-content-center">
+          <ItemDetail {...product} />
+        </div>
+      )}
+    </div>
+  );
 };
 export default ItemDetailContainer;

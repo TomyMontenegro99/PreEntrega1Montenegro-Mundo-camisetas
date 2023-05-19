@@ -16,20 +16,20 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div class="justify-content-between align-items-center">
+    <div className="justify-content-between align-items-center">
       <div>
-        <button class="btn btn-primary" onClick={decrement}>
+        <button className="btn btn-primary" onClick={decrement}>
           -
         </button>
-        <span class="mx-2"></span>
-        <button class="btn btn-primary" onClick={increment}>
+        <span className="mx-2"></span>
+        <button className="btn btn-primary" onClick={increment}>
           +
         </button>
-        <h4 class="m-3">{quantity}</h4>
+        <h4 className="m-3">{quantity}</h4>
       </div>
       <div>
         <button
-          class="btn btn-success"
+          className="btn btn-success"
           onClick={() => onAdd(quantity)}
           disabled={!stock}
         >
